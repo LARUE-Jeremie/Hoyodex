@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Genshin';
+    src: url('../fonts/Genshin.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Genshin', 'Cinzel', serif;
+}
+
+h1 {
+    color: brown;
+    text-align: center;
+}
