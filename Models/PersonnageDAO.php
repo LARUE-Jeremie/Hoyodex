@@ -6,26 +6,19 @@ class PersonnageDAO extends BasePDODAO {
 
     // Methods
     public function getAll(): array {
-        $stmt = $this->execRequest("SELECT * FROM personnage");
-        $results = $stmt->fetchAll();
+        $sql = "SELECT * FROM personnage";
+        $stmt = $this->execRequest($sql);
+        $data = $stmt->fetchAll();
 
-        $personnages = [];
-        foreach ($results as $row) {
-            $personnages[] = new Personnage($row);
-        }
-
-        return $personnages;
+        return $data;
     }
 
-    public function getByID(string $idPersonnage): ?Personnage {
-        $stmt = $this->execRequest("SELECT * FROM personnage WHERE id_personnage = ?", [$idPersonnage]);
-        $row = $stmt->fetch();
+    public function getByID(string $idPersonnage): array {
+        $sql = "SELECT * FROM personnage WHERE id_personnage = ?";
+        $stmt = $this->execRequest($sql, [$idPersonnage]);
+        $data = $stmt->fetch();
 
-        if ($row) {
-            return new Personnage($row);
-        }
-
-        return null;
+        return $data;
     }
 }
 

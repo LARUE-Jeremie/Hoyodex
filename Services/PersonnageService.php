@@ -33,15 +33,15 @@ class PersonnageService {
         return null;
     }
 
-    private function hydrate(array $data): Personnage {
+    private function hydrate(array $row): Personnage {
         $personnage = new Personnage();
-        $personnage->setId($data['id_personnage']);
-        $personnage->setName($data['name']);
-        $personnage->setElement($data['element']);
-        $personnage->setUnitclass($data['unitclass']);
-        $personnage->setOrigin($data['origin'] ?? null);
-        $personnage->setRarity((int)$data['rarity']);
-        $personnage->setUrlImg($data['url_img']);
+        $personnage->setId($row['id_personnage']);
+        $personnage->setName($row['name']);
+        $personnage->setElement($row['element']);
+        $personnage->setUnitclass($row['unitclass']);
+        $personnage->setOrigin($row['origin'] ?? null);
+        $personnage->setRarity((int)$row['rarity']);
+        $personnage->setUrlImg($row['url_img']);
         return $personnage;
     }
 }

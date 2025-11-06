@@ -16,15 +16,7 @@ class BasePDODAO {
     public function getDB(): PDO {
         if ($this->db === null) {
             try {
-                $host = Config::get('host');
-                $dbname = Config::get('dbname');
-                $user = Config::get('user');
-                $password = Config::get('password');
-                $charset = Config::get('charset', 'utf8');
-
-                $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
-                $this->db = new PDO($dsn, $user, $password);
-
+                $this->db = new PDO(Config::get('dsn'),Config::get('user'),Config::get('pass'));
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 

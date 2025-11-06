@@ -10,16 +10,23 @@ class MainController
     private Engine $engine;
 
     // Contructor
-    public function __construct() {
-        $this->engine = new Engine(__DIR__ . '/../Views');
+    public function __construct(Engine $engine) {
+        $this->engine = $engine;
     }
 
     // Methods
     public function index($gameName) : void {
-        echo $this->engine->render('home', ['gameName' => $gameName]);
+        $service = new PersonnageService();
+        $listPersonnage = $service->getall();
+        $first = $listPersonnage[0];
+        $other = $service->getByID('1');
+        echo $this->engine->render('home', [
+            'gameName' => $gameName,
+            'listPersonnage' => $listPersonnage,
+            'first' => $first,
+            'other' => $other,
+        ]);
     }
-
-    // TODO
 }
 
 ?>

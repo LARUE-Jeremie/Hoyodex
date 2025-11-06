@@ -14,18 +14,7 @@ class Personnage {
     private string $urlImg;
 
     // Constructor
-    public function __construct(array $data = []) {
-        $this->hydrate($data);
-    }
-
-    // Hydrate
-    public function hydrate(array $data): void {
-        foreach ($data as $key => $value) {
-            $method = 'set' . str_replace(' ', '', ucwords(str_replace('_', ' ', $key)));
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            }
-        }
+    public function __construct() {
     }
 
     // Getters

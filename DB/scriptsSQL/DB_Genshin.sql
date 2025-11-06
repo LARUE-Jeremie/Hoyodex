@@ -1,3 +1,4 @@
+-- Active: 1762347300667@@127.0.0.1@3306@bdd_eseo
 
 # SCHEMA
 DROP SCHEMA IF EXISTS GENSHIN;
@@ -8,7 +9,7 @@ use GENSHIN;
 
 # DATABASE
 CREATE TABLE IF NOT EXISTS personnage (
-    id_personnage INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_personnage VARCHAR(50) NOT NULL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     element VARCHAR(50) NOT NULL,
     unitclass VARCHAR(50) NOT NULL,
@@ -18,8 +19,8 @@ CREATE TABLE IF NOT EXISTS personnage (
 );
 
 # INSERT TEST
-INSERT INTO personnage (name, element, unitclass, origin, rarity, url_img)
-VALUES ('Aino', 'Hydro', 'Claymore', 'Nod-Krai', 4, 'aino.webp');
+INSERT INTO personnage (id_personnage, name, element, unitclass, origin, rarity, url_img)
+VALUES ('1', 'Aino', 'Hydro', 'Claymore', 'Nod-Krai', 4, 'aino.webp');
 
 #SHOW VARIABLES LIKE 'local_infile';
 SET GLOBAL local_infile = 1;
