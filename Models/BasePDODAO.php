@@ -38,9 +38,9 @@ class BasePDODAO {
         $pdo = $this->getDB();
 
         if ($params) {
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute($params);
-            return $stmt;
+            $request = $pdo->prepare($sql);
+            $request->execute($params);
+            return $request;
         } else {
             return $pdo->query($sql);
         }

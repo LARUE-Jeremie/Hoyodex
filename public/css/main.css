@@ -5,11 +5,77 @@
     font-style: normal;
 }
 
+:root {
+    --rarity-5: #D4AF37;
+    --rarity-4: #A256E1;
+
+    --anemo: #66CC8A;
+    --cryo: #6AB0CE;
+    --dendro: #7CB342;
+    --electro: #9A4DCA;
+    --geo: #D4A017;
+    --hydro: #2B7DCE;
+    --pyro: #BF2A2A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home {
+    color: #ffffff;
+    background-color: #252525;
+}
+
+header {
+    background-color: #ff0000;
+    padding-bottom: 20px;
+}
+
 body {
     font-family: 'Genshin', serif;
 }
 
 h1 {
-    color: brown;
+    color: #ffffff;
     text-align: center;
 }
+
+h2 {
+    color: #ffff00;
+    text-align: center;
+}
+
+.character-list {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    margin: 0 auto;
+
+
+    background-color: #299266;
+    background-image: 
+        repeating-linear-gradient(45deg, #4b4b4b, #4b4b4b 1px, transparent 1px, transparent 10px),
+        repeating-linear-gradient(-45deg, #4b4b4b, #4b4b4b 1px, transparent 1px, transparent 10px);
+
+}
+
+.character-card {
+    background-color: #252525;
+    border-color : #8d5500;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    position: relative;
+    box-shadow: 0 3px 3px rgba(146, 73, 0, 0.4);
+}
+
+/* $name-card */
+/* $element-card */
+/* $weapon-card */
+/* $rarity-card */
+/* $origin-card */
+/* $image-card */
