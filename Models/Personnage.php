@@ -2,6 +2,9 @@
 
 namespace Models;
 
+/**
+ * Character
+ */
 class Personnage {
 
     // Attributes
@@ -13,7 +16,9 @@ class Personnage {
     private ?string $origin;
     private string $urlImg;
 
-    // Constructor
+    /**
+     * Character's constructor
+     */
     public function __construct() {
     }
 

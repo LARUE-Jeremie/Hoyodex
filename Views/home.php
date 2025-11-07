@@ -9,8 +9,4 @@ $this->layout('template', ['title' => 'Hoyodex']);
 <h2>Liste des personnages :</h2>
 <?php var_dump($listPersonnage); ?>
 
-<h2>Premier personnage :</h2>
-<?php var_dump($first); ?>
-
-<h2>Personnage inexistant :</h2>
-<?php var_dump($other); ?>
+?>

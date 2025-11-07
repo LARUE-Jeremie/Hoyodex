@@ -2,17 +2,21 @@
 
 namespace Models;
 
-use Config\Config;
 use PDO;
-use PDOStatement;
 use Exception;
+use PDOStatement;
+use Config\Config;
 
+/**
+ * Base DAO
+ */
 class BasePDODAO {
 
-    // Attributes
     private ?PDO $db = null;
 
-    // Methods
+    /**
+     * Get the database used
+     */
     public function getDB(): PDO {
         if ($this->db === null) {
             try {
@@ -21,12 +25,15 @@ class BasePDODAO {
                 $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
             } catch (Exception $e) {
-                die("Erreur de connexion à la base de données : " . $e->getMessage());
+                die("Database connection error : " . $e->getMessage());
             }
         }
         return $this->db;
     }
 
+    /**
+     * Execute an SQL request
+     */
     protected function execRequest(string $sql, ?array $params = null): PDOStatement|false {
         $pdo = $this->getDB();
 

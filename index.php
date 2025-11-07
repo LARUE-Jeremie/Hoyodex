@@ -24,11 +24,4 @@ use Controllers\MainController;
 $controller = new MainController($engine);
 $controller->index('Genshin Impact');
 
-// DAO
-use Models\PersonnageDAO;
-$personnageDAO = new PersonnageDAO();
-
-// Query
-$personnages = $personnageDAO->getAll();
-
 ?>
