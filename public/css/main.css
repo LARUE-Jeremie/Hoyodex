@@ -273,6 +273,8 @@ h2 {
 
 .character-list {
     margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-right: 10px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -289,6 +291,10 @@ h2 {
     border: 5px solid var(--brown-3);
     position: relative;
     box-shadow: 5px 5px 5px var(--green-3);
+}
+.character-card:hover {
+    transform: scale(1.01);
+    filter: brightness(0.9) contrast(1.1);
 }
 
 .header-card {
