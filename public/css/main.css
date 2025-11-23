@@ -6,6 +6,26 @@
 }
 
 :root {
+    /* general */
+    --brown-1: #ffe6cd;
+    --brown-2: #5f3000;
+    --brown-3: #23190b;
+
+    --grey-1: #c7c7c7;
+    --grey-2: #252525;
+    --grey-3: #131313;
+
+    --red-1: #880015;
+    --red-2: #55000d;
+
+    --green-1: #15ff00;
+    --green-2: #299266;
+    --green-3: #142e23;
+
+    --blue-1: #75b5ff;
+    --blue-2: #00489b;
+
+    /* genshin */
     --rarity-5: #D4AF37;
     --rarity-4: #A256E1;
 
@@ -21,21 +41,11 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-.home {
-    color: #ffffff;
-    background-color: #252525;
-}
-
-header {
-    background-color: #ff0000;
-    padding-bottom: 20px;
+    font-family: 'Genshin', serif;
 }
 
 body {
-    font-family: 'Genshin', serif;
+    background-color: var(--grey-2);
 }
 
 h1 {
@@ -44,38 +54,369 @@ h1 {
 }
 
 h2 {
-    color: #ffff00;
+    color: var(--green-1);
+}
+
+
+
+/* ========== */
+/* BACKGROUND */
+/* ========== */
+.background {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--grey-3) 1px, transparent 1px);
+    background-size: 200px 200px;
+    animation: move 20s linear infinite;
+    border: 2px solid var(--grey-3);
+}
+
+
+
+
+/* ========== */
+/*   HOYODEX  */
+/* ========== */
+.hoyodex {
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* ----------- */
+/* SIDE WINDOW */
+/* ----------- */
+.sideWindow {
+    justify-items: center
+}
+
+.home-button {
+    height: 30px;
+    width: 75px;
     text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: var(--red-1);
+    box-shadow: inset 0 0 10px var(--red-2);
+}
+
+.top-menus {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    height: 35px;
+    margin-bottom: -20px;
+    color: white;
+    text-align: center;
+    align-content: center;
+    background-color: var(--red-1);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    box-shadow: inset 0 0 10px var(--red-2);
+}
+
+.menus {
+    position: relative;
+    z-index: 1;
+    min-width: 126px;
+    gap: 15px;
+    padding: 20px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    border-bottom-right-radius: unset;
+    border: 5px solid var(--red-1);
+    border-top: unset;
+    border-right: unset;
+    background-color: var(--red-2);
+}
+
+.menu-button {
+    height: 52px;
+    width: 123px;
+    border-radius: 30%;
+    background-color: var(--blue-2);
+    box-shadow: 0 2px 3px var(--blue-1);
+}
+
+
+
+/* ----------- */
+/* MAIN WINDOW */
+/* ----------- */
+.mainWindow {
+    min-width: 600px;
+    min-height: 450px;
+    border-radius: 20px;
+    background-color: var(--red-1);
+    box-shadow: inset 0 0 10px var(--red-2);
+}
+
+/* TOP */
+.mainWindow-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.gamePicture {
+    height: 35px;
+    width: 35px;
+    border: 3px solid var(--red-2);
+    border-radius: 15%;
+    background-color: var(--red-2);
+}
+
+.gamePicture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.lights {
+    gap: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.littleLight {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: gray;
+}
+.littleLight.red { background-color: var(--red-2); box-shadow: inset 0 0 2px black; }
+.littleLight.yellow { background-color: yellow; box-shadow: inset 0 0 2px black; }
+.littleLight.green { background-color: var(--green-2); box-shadow: inset 0 0 2px black; }
+
+.mainLight {
+    height: 35px;
+    width: 35px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background-color: cyan;
+    box-shadow: inset 0 0 17px blue;
+}
+
+/* MENU */
+.mainWindow-menu {
+    padding: 10px;
+    justify-items: center;
+}
+
+.menu-title {
+    width: 50%;
+    height: 40px;
+    margin-top: -30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    align-content: center;
+    border: 3px solid black;
+    border-bottom: unset;
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    background-color: var(--green-3);
+    box-shadow: inset 0 0 10px var(--green-1);
+}
+
+.menu-content {
+    min-height: 455px;
+    min-width: 575px;
+    margin: 0 auto;
+    justify-items: center;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-color: var(--green-2);
+    box-shadow: inset 0 0 10px var(--green-3);
+}
+
+
+
+
+/* ========== */
+/*    PAGES   */
+/* ========== */
+.contenu {
+    color: #ffffff;
+    padding: 10px;
+}
+
+
+
+
+/* ========== */
+/* PAGE: HOME */
+/* ========== */
+.home {
+    justify-items: center;
+}
+
+.scrollable {
+    max-height: 430px;
+    max-width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .character-list {
-    padding: 10px;
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
     margin: 0 auto;
-
-
-    background-color: #299266;
-    background-image: 
-        repeating-linear-gradient(45deg, #4b4b4b, #4b4b4b 1px, transparent 1px, transparent 10px),
-        repeating-linear-gradient(-45deg, #4b4b4b, #4b4b4b 1px, transparent 1px, transparent 10px);
-
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .character-card {
-    background-color: #252525;
-    border-color : #8d5500;
+    height: 185px;
+    width: 150px;
+    padding-bottom: 10px;
+    background-color: var(--brown-3);
     border-radius: 15px;
     overflow: hidden;
-    border: 2px solid transparent;
+    border: 5px solid var(--brown-3);
     position: relative;
-    box-shadow: 0 3px 3px rgba(146, 73, 0, 0.4);
+    box-shadow: 5px 5px 5px var(--green-3);
 }
 
-/* $name-card */
-/* $element-card */
-/* $weapon-card */
-/* $rarity-card */
-/* $origin-card */
-/* $image-card */
+.header-card {
+    height: 20%;
+}
+
+.body-card {
+    height: 80%;
+    text-align: center;
+    color: var(--grey-2);
+}
+
+.header-card-top {
+    height: 55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.stars-card {}
+.rarity-4 { color: var(--rarity-4); }
+.rarity-5 { color: var(--rarity-5); }
+
+.element-card {}
+.element-card img {
+    height: 100%;
+}
+
+.origin-card {
+    font-size: 10px;
+    box-shadow: inset 5px 0px 5px var(--brown-2);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.image-card {
+    height: 65%;
+    align-content: center;
+    background-color: var(--brown-1);
+    background-image: url('../img/backgrounds/stars.webp');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: inset 0 2px 3px var(--brown-1);
+}
+.image-card img {
+    height: 100%;
+}
+
+.name-card {
+    height: 15%;
+    align-content: center;
+    color: var(--brown-1);
+    font-size: small;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: var(--brown-2);
+    border-top: 2px solid var(--brown-3);
+    border-bottom: 5px solid var(--brown-3);
+    box-shadow: inset 1px 0px 8px var(--brown-1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.weapon-card {
+    margin-top: 1px;
+    height: 20%;
+    align-content: center;
+    border-radius: 10px;
+    background-color: var(--brown-3);
+}
+.weapon-card img {
+    height: 100%;
+}
+
+
+
+
+
+
+
+/* ================= */
+/*     ANIMATIONS    */
+/* ================= */
+@keyframes move {
+  from { background-position: 0 0; }
+  to { background-position: 200px 200px; }
+}
+
+/* ================= */
+/* UNDER TABLET SIZE */
+/* ================= */
+@media only screen and (max-width: 777px) {
+  .hoyodex {
+    flex-direction: column;
+  }
+  .top-menus {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  .menus {
+    flex-direction: row;
+    border-left: 5px solid var(--red-1);
+    border-bottom-right-radius: 15px;
+    border-top: 5px solid var(--red-1);
+    border-right: 5px solid var(--red-1);
+  }
+}
+
+/* ================= */
+/* UNDER PHONE SIZE  */
+/* ================= */
+@media only screen and (max-width: 600px) {
+  .hoyodex {
+    flex-direction: column;
+  }
+  .top-menus {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  .menus {
+    flex-direction: row;
+    border-left: 5px solid var(--red-1);
+    border-bottom-right-radius: 15px;
+    border-top: 5px solid var(--red-1);
+    border-right: 5px solid var(--red-1);
+  }
+}

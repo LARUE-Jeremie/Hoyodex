@@ -1,49 +1,71 @@
-<?php $this->layout('template', ['title' => 'Hoyodex']); ?>
+<?php $this->layout('template', ['menuTitle' => 'Liste des personnages']); ?>
 
 <div class="home">
-    <header>
-        <h1>Collection <?= $this->e($gameName) ?></h1>
-    </header>
+    <div class="scrollable">
+        <div class="character-list">
+            <?php foreach ($listPersonnage as $index => $personnage): ?>
+                <div class="character-name">
+                    <?php
+                        $name = $personnage->getName();
+                        $element = $personnage->getElement();
+                        $weapon = $personnage->getUnitclass();
+                        $rarity = $personnage->getRarity();
+                        $origin = $personnage->getOrigin();
+                        $image = $personnage->getUrlImg();
+                    ?>
+                    <?php
+                        $nameToLower = strtolower(str_replace(' ', '_', $name));
+                        // https://genshin-impact.fandom.com/wiki/Character/List
+                        $characterImg = "public/img/characters/{$nameToLower}.webp";
 
-    <h2>Liste des personnages</h2>
+                        $stars = str_repeat('★', $rarity);
+                        switch ($rarity) {
+                            case 4:
+                                $rarityClass = 'rarity-4'; break;
+                            case 5:
+                                $rarityClass = 'rarity-5'; break;
+                            default:
+                                $rarityClass = '';
+                        }
 
-    <div class="character-list">
-        <?php foreach ($listPersonnage as $index => $personnage): ?>
-            <div class="character-name">
-                <?php
-                    $name = $personnage->getName();
-                    $element = $personnage->getElement();
-                    $weapon = $personnage->getUnitclass();
-                    $rarity = $personnage->getRarity();
-                    $origin = $personnage->getOrigin();
-                    $image = $personnage->getUrlImg();
-                ?>
+                        // https://wiki.hoyolab.com/pc/genshin/aggregate/character?lang=en-us
+                        $elementToLower = strtolower($element);
+                        $elementImg = "public/img/elements/{$elementToLower}.webp";
+                        $weaponToLower = strtolower($weapon);
+                        $weaponImg = "public/img/weapon/{$weaponToLower}.webp";
+                    ?>
 
-                <div class="character-card">
-                    <div class="header-card">
-                        <div class="rarity-card">
-                            <?= $rarity ?>
+                    <div class="character-card">
+                        <div class="header-card">
+                            <div class="header-card-top">
+                                <div class="stars-card <?= $rarityClass ?>">
+                                    <?= $stars ?>
+                                </div>
+                                <div class="element-card">
+                                    <img src="<?= $elementImg ?>" alt="<?= $element ?>">
+                                </div>
+                            </div>
+                            <div class="origin-card">
+                                <?= $origin ?>
+                            </div>
                         </div>
-                        <div class="element-card">
-                            <?= $element ?>
+
+                        <div class="body-card">
+                            <div class="image-card">
+                                <img src="<?= $characterImg ?>" alt="<?= $name ?>">
+                            </div>
+
+                            <div class="name-card">
+                                <?= $name ?>
+                            </div>
+
+                            <div class="weapon-card">
+                                <img src="<?= $weaponImg ?>" alt="<?= $weapon ?>">
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="image-card">
-                        <?= $image ?>
-                    </div>
-
-                    <div class="origin-card">
-                        <?= $origin ?>
-                    </div>
-
-                    <div class="weapon-card">
-                        <?= $weapon ?>
                     </div>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
-
-    <footer></footer>
 </div>
