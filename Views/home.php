@@ -6,6 +6,7 @@
             <?php foreach ($listPersonnage as $index => $personnage): ?>
                 <div class="character-name">
                     <?php
+                        $id = $personnage->getId();
                         $name = $personnage->getName();
                         $element = $personnage->getElement();
                         $weapon = $personnage->getUnitclass();
@@ -39,6 +40,10 @@
                     ?>
 
                     <div class="character-card">
+                        <div class="card-actions">
+                            <a href="?action=edit-perso&id=<?= $id ?>" class="btn-edit">✏️</a>
+                            <a href="?action=del-perso&id=<?= $id ?>" class="btn-del">🗑️</a>
+                        </div>
                         <div class="header-card">
                             <div class="header-card-top">
                                 <div class="stars-card <?= $rarityClass ?>">

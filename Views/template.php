@@ -13,14 +13,22 @@
                 <!-- SIDE -->
                 <div class="sideWindow">
                     <div class="home-panel">
-                        <input class="home-button" type="submit" name="keyboard" value="🏠">
+                        <button class="home-button" onclick="window.location.href='index.php'">
+                            <img src="public/img/icons/house.webp" alt="game icon">
+                        </button>
                     </div>
                     <div class="top-menus">Menus</div>
                     <div class="menus">
-                        <input class="menu-button" type="submit" name="keyboard" value="button">
-                        <input class="menu-button" type="submit" name="keyboard" value="button">
-                        <input class="menu-button" type="submit" name="keyboard" value="button">
-                        <input class="menu-button" type="submit" name="keyboard" value="button">
+                        <button class="menu-button" onclick="window.location.href='index.php?action=add-perso'">
+                            <img src="public/img/icons/add-character.webp" alt="game icon">
+                        </button>
+                        <button class="menu-button" onclick="window.location.href='index.php?action=add-perso-element'">
+                            <img src="public/img/icons/add-element.webp" alt="game icon">
+                        </button>
+                        <button class="menu-button" onclick="window.location.href='index.php?action=logs'">Logs</button>
+                        <button class="menu-button" onclick="window.location.href='index.php?action=login'">
+                            <img src="public/img/icons/login.webp" alt="game icon">
+                        </button>
                     </div>
                 </div>
 
@@ -29,7 +37,7 @@
                     <!-- top -->
                     <div class="mainWindow-top">
                         <div class="gamePicture">
-                            <img src="public/img/favicon.ico" alt="game icon">
+                            <img src="public/img/icons/favicon.ico" alt="game icon">
                         </div>
                         <div class="lights">
                             <div class="littleLight green"></div>
