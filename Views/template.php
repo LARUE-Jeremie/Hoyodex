@@ -14,15 +14,15 @@
                 <div class="sideWindow">
                     <div class="home-panel">
                         <button class="home-button" onclick="window.location.href='index.php'">
-                            <img src="public/img/icons/house.webp" alt="game icon">
+                            <img src="public/img/icons/cards.webp" alt="game icon">
                         </button>
                     </div>
                     <div class="top-menus">Menus</div>
                     <div class="menus">
-                        <button class="menu-button" onclick="window.location.href='index.php?action=add-perso'">
+                        <button class="menu-button" onclick="window.location.href='index.php?action=add-character'">
                             <img src="public/img/icons/add-character.webp" alt="game icon">
                         </button>
-                        <button class="menu-button" onclick="window.location.href='index.php?action=add-perso-element'">
+                        <button class="menu-button" onclick="window.location.href='index.php?action=add-element'">
                             <img src="public/img/icons/add-element.webp" alt="game icon">
                         </button>
                         <button class="menu-button" onclick="window.location.href='index.php?action=logs'">Logs</button>
