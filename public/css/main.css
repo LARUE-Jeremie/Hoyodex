@@ -254,10 +254,42 @@ h2 {
     min-width: 575px;
     margin: 0 auto;
     justify-items: center;
+    align-content: center;
     border: 3px solid black;
     border-radius: 20px;
     background-color: var(--green-2);
     box-shadow: inset 0 0 10px var(--green-3);
+}
+
+
+
+
+/* ========== */
+/*    FORM    */
+/* ========== */
+.character-card-form {
+    height: 350px;
+    width: 250px;
+    padding-bottom: 10px;
+    background-color: var(--brown-3);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 5px solid var(--brown-3);
+    position: relative;
+    box-shadow: 5px 5px 5px var(--green-3);
+}
+
+.form-inputs {
+    display: flex;
+    flex-direction: row;
+}
+.input-labels {
+    display: flex;
+    flex-direction: column;
+}
+.input-fields {
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -417,6 +449,31 @@ h2 {
 .weapon-card img {
     height: 100%;
 }
+
+
+
+
+/* =============== */
+/* PAGE: CHARACTER */
+/* =============== */
+.character {
+    height: 100%;
+    justify-items: center;
+}
+
+.character-form {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-form-input {
+    text-align: center;
+}
+
+
+
 
 
 

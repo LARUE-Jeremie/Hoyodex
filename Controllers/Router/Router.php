@@ -8,8 +8,10 @@ use Controllers\ElementController;
 use Controllers\LogsController;
 use Controllers\LoginController;
 use Controllers\Router\Route\RouteIndex;
-use Controllers\Router\Route\RouteCharacter;
-use Controllers\Router\Route\RouteElement;
+use Controllers\Router\Route\RouteAddCharacter;
+use Controllers\Router\Route\RouteEditCharacter;
+use Controllers\Router\Route\RouteDeleteCharacter;
+use Controllers\Router\Route\RouteAddElement;
 use Controllers\Router\Route\RouteLogs;
 use Controllers\Router\Route\RouteLogin;
 
@@ -48,8 +50,10 @@ class Router {
      */
     private function createRouteList() {
         $this->routeList["index"] = new RouteIndex("index", $this->ctrlList["main"]);
-        $this->routeList["character"] = new RouteCharacter("character", $this->ctrlList["character"]);
-        $this->routeList["element"] = new RouteElement("element", $this->ctrlList["element"]);
+        $this->routeList["add-character"] = new RouteAddCharacter("add-character", $this->ctrlList["character"]);
+        $this->routeList["edit-character"] = new RouteEditCharacter("edit-character", $this->ctrlList["character"]);
+        $this->routeList["delete-character"] = new RouteDeleteCharacter("delete-character", $this->ctrlList["character"]);
+        $this->routeList["add-element"] = new RouteAddElement("add-element", $this->ctrlList["element"]);
         $this->routeList["logs"] = new RouteLogs("logs", $this->ctrlList["logs"]);
         $this->routeList["login"] = new RouteLogin("login", $this->ctrlList["login"]);
     }
@@ -64,17 +68,9 @@ class Router {
             $action = "index";
         }
         $route = $this->routeList[$action];
-
+        
         $method = (!empty($post)) ? 'POST' : 'GET';
-        switch ($method) {
-            case 'POST':
-                $route->action($post, 'POST');
-                break;
-            case 'GET':
-            default:
-                $route->action($get, 'GET');
-                break;
-        }
+        $route->action($method === 'POST' ? $post : $get, $method);        
     }
 }
 

@@ -15,13 +15,11 @@
                         $image = $personnage->getUrlImg();
                     ?>
                     <?php
-                        $nameToLower = strtolower(str_replace(' ', '_', $name));
-                        
-                        // https://genshin-impact.fandom.com/wiki/Character/List
-                        /* LOCAL */
-                        //$characterImg = "public/img/characters/{$nameToLower}.webp";
-                        /* URL */
-                        //$characterImg = "https://i2.wp.com/images.genshin-builds.com/genshin/characters/{$nameToLower}/image.png?strip=all&quality=100&w=160";
+
+                        // source: https://genshin-impact.fandom.com/wiki/Character/List
+                        // $nameToLower = strtolower(str_replace(' ', '_', $name));
+                        /* LOCAL */ //$characterImg = "public/img/characters/{$nameToLower}.webp";
+                        /*  URL  */ //$characterImg = "https://i2.wp.com/images.genshin-builds.com/genshin/characters/{$nameToLower}/image.png?strip=all&quality=100&w=160";
 
                         $stars = str_repeat('★', $rarity);
                         switch ($rarity) {
@@ -33,7 +31,7 @@
                                 $rarityClass = '';
                         }
 
-                        // https://wiki.hoyolab.com/pc/genshin/aggregate/character?lang=en-us
+                        // source: https://wiki.hoyolab.com/pc/genshin/aggregate/character?lang=en-us
                         $elementToLower = strtolower($element);
                         $elementImg = "public/img/elements/{$elementToLower}.webp";
                         $weaponToLower = strtolower($weapon);
@@ -42,8 +40,8 @@
 
                     <div class="character-card">
                         <div class="card-actions">
-                            <a href="?action=edit-perso&id=<?= $id ?>" class="btn-edit">✏️</a>
-                            <a href="?action=del-perso&id=<?= $id ?>" class="btn-del">🗑️</a>
+                            <a href="?action=edit-character&id=<?= $id ?>" class="btn-edit">✏️</a>
+                            <a href="?action=delete-character&id=<?= $id ?>" class="btn-del">🗑️</a>
                         </div>
                         <div class="header-card">
                             <div class="header-card-top">

@@ -1,17 +1,18 @@
 <?php
+
 namespace Controllers\Router\Route;
 
 use Controllers\ElementController;
 
 /**
- * RouteElement's class
+ * RouteAddElement's class
  */
-class RouteElement extends Route {
+class RouteAddElement extends Route {
 
     private ElementController $controller;
 
     /**
-     * RouteElement's constructor
+     * RouteAddElement's constructor
      */
     public function __construct(string $name, ElementController $controller) {
         parent::__construct($name);
