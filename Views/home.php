@@ -16,11 +16,12 @@
                     ?>
                     <?php
                         $nameToLower = strtolower(str_replace(' ', '_', $name));
+                        
                         // https://genshin-impact.fandom.com/wiki/Character/List
                         /* LOCAL */
                         //$characterImg = "public/img/characters/{$nameToLower}.webp";
                         /* URL */
-                        $characterImg = "https://i2.wp.com/images.genshin-builds.com/genshin/characters/{$nameToLower}/image.png?strip=all&quality=100&w=160";
+                        //$characterImg = "https://i2.wp.com/images.genshin-builds.com/genshin/characters/{$nameToLower}/image.png?strip=all&quality=100&w=160";
 
                         $stars = str_repeat('★', $rarity);
                         switch ($rarity) {
@@ -60,7 +61,7 @@
 
                         <div class="body-card">
                             <div class="image-card">
-                                <img src="<?= $characterImg ?>" alt="<?= $name ?>">
+                                <img src="<?= $image ?>" alt="<?= $name ?>">
                             </div>
 
                             <div class="name-card">
