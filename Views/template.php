@@ -19,11 +19,11 @@
                     </div>
                     <div class="top-menus">Menus</div>
                     <div class="menus">
-                        <button class="menu-button" onclick="window.location.href='index.php?action=add-character'">
-                            <img src="public/img/icons/add-character.webp" alt="game icon">
+                        <button class="menu-button" onclick="window.location.href='index.php?action=character'">
+                            <img src="public/img/icons/character.webp" alt="game icon">
                         </button>
-                        <button class="menu-button" onclick="window.location.href='index.php?action=add-element'">
-                            <img src="public/img/icons/add-element.webp" alt="game icon">
+                        <button class="menu-button" onclick="window.location.href='index.php?action=element'">
+                            <img src="public/img/icons/element.webp" alt="game icon">
                         </button>
                         <button class="menu-button" onclick="window.location.href='index.php?action=logs'">Logs</button>
                         <button class="menu-button" onclick="window.location.href='index.php?action=login'">

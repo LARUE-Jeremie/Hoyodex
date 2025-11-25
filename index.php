@@ -19,9 +19,9 @@ $loader->addNamespace('Exceptions', __DIR__ . '/Exceptions');
 use League\Plates\Engine;
 $engine = new Engine(__DIR__ . '/Views');
 
-// Controller
-use Controllers\MainController;
-$controller = new MainController($engine);
-$controller->index('Genshin Impact');
+// Router
+use Controllers\Router\Router;
+$router = new Router();
+$router->routing($_GET, $_POST);
 
 ?>

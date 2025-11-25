@@ -26,12 +26,8 @@ class MainController {
     public function index($gameName) : void {
         $service = new PersonnageService();
         $listPersonnage = $service->getall();
-        
-        $action = $_GET['action'] ?? 'home';
-        $viewFile = __DIR__ . '/../Views/' . $action . '.php';
-        if (!file_exists($viewFile)) { $action = 'home'; }
 
-        echo $this->engine->render($action, [
+        echo $this->engine->render('home', [
             'gameName' => $gameName,
             'listPersonnage' => $listPersonnage
         ]);

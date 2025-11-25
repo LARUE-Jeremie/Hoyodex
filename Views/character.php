@@ -1,0 +1,1 @@
+<?php $this->layout('template', ['menuTitle' => 'Ajouter un personnage']); ?>
