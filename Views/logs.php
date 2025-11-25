@@ -1,3 +1,3 @@
-<?php $this->layout('template', ['menuTitle' => 'Login']); ?>
+<?php $this->layout('template', ['menuTitle' => 'Logs']); ?>
 
-<h1>Page : login</h1>
+<h1>Page : logs</h1>

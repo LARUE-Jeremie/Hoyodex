@@ -36,7 +36,7 @@
                         $elementToLower = strtolower($element);
                         $elementImg = "public/img/elements/{$elementToLower}.webp";
                         $weaponToLower = strtolower($weapon);
-                        $weaponImg = "public/img/weapon/{$weaponToLower}.webp";
+                        $weaponImg = "public/img/weapons/{$weaponToLower}.webp";
                     ?>
 
                     <div class="character-card">
