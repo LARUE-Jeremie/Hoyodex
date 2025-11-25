@@ -52,7 +52,7 @@ class PersonnageService {
         $personnage->setId($row['id_personnage']);
         $personnage->setName($row['name']);
         $personnage->setElement($row['element']);
-        $personnage->setUnitclass($row['unitclass']);
+        $personnage->setWeapon($row['weapon']);
         $personnage->setOrigin($row['origin'] ?? null);
         $personnage->setRarity((int)$row['rarity']);
         $personnage->setUrlImg($row['url_img']);

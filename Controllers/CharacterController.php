@@ -22,6 +22,12 @@ class CharacterController {
      */
     public function displayCharacter() {
         echo $this->engine->render("character", [
+            "menuTitle" => "Modifier un personnage"
+        ]);
+    }
+
+    public function displayAddCharacter() {
+        echo $this->engine->render("character", [
             "menuTitle" => "Ajouter un personnage"
         ]);
     }

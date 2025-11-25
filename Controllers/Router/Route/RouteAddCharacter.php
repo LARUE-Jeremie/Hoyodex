@@ -19,7 +19,7 @@ class RouteAddCharacter extends Route {
     }
 
     public function get($params = []) {
-        return $this->controller->displayCharacter();
+        return $this->controller->displayAddCharacter();
     }
     public function post($params = []) {
         /* TODO */

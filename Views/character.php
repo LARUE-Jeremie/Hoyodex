@@ -1,4 +1,4 @@
-<?php $this->layout('template', ['menuTitle' => 'Ajouter un personnage']); ?>
+<?php $this->layout('template', ['menuTitle' => $menuTitle]); ?>
 
 <div class="character">
     <form class="character-form" method="POST" action="index.php?action=add-perso">
@@ -9,8 +9,8 @@
             <div class="header-card">
                 <div class="header-card-top">
                     <label>
-                        <input type="radio" name="rarity" value="4"> 4★
-                        <input type="radio" name="rarity" value="5" checked> 5★
+                        <input type="radio" name="rarity" value="4" checked> 4★
+                        <input type="radio" name="rarity" value="5"> 5★
                     </label>
 
                     <div class="element-card">
@@ -43,7 +43,7 @@
                 </div>
 
                 <div class="weapon-card">
-                    <select name="unitclass" class="card-form-input">
+                    <select name="weapon" class="card-form-input">
                         <option value="">Type d'arme</option>
                         <option value="Bow">Bow</option>
                         <option value="Catalyst">Catalyst</option>

@@ -9,7 +9,7 @@
                         $id = $personnage->getId();
                         $name = $personnage->getName();
                         $element = $personnage->getElement();
-                        $weapon = $personnage->getUnitclass();
+                        $weapon = $personnage->getWeapon();
                         $rarity = $personnage->getRarity();
                         $origin = $personnage->getOrigin();
                         $image = $personnage->getUrlImg();

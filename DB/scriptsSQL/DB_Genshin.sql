@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS personnage (
     id_personnage VARCHAR(50) NOT NULL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     element VARCHAR(50) NOT NULL,
-    unitclass VARCHAR(50) NOT NULL,
+    weapon VARCHAR(50) NOT NULL,
     origin VARCHAR(100),
     rarity INT NOT NULL,
     url_img VARCHAR(255) NOT NULL
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS personnage (
 SET GLOBAL local_infile = 1;
 
 # INSERTS
-INSERT INTO personnage (id_personnage, name, element, unitclass, origin, rarity, url_img)
+INSERT INTO personnage (id_personnage, name, element, weapon, origin, rarity, url_img)
 VALUES
 ('1', 'Aino', 'Hydro', 'Claymore', 'Nod-Krai', 4,                       'https://i2.wp.com/images.genshin-builds.com/genshin/characters/aino/image.png?strip=all&quality=100&w=160'),
 ('2', 'Albedo', 'Geo', 'Sword', 'Mondstadt', 5,                         'https://i2.wp.com/images.genshin-builds.com/genshin/characters/albedo/image.png?strip=all&quality=100&w=160'),

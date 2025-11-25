@@ -28,6 +28,55 @@ class PersonnageDAO extends BasePDODAO {
 
         return $data;
     }
+
+    /**
+     * Create a new character
+     */
+    public function createCharacter(array $data): bool {
+        $sql = "INSERT INTO personnage (id_personnage, name, element, weapon, origin, rarity, url_img) 
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $id = uniqid();
+        $params = [
+            $id,
+            $data['name'],
+            $data['element'],
+            $data['weapon'],
+            $data['origin'],
+            $data['rarity'],
+            $data['url_img']
+        ];
+        $request = $this->execRequest($sql, $params);
+        return $request->rowCount() > 0;
+    }
+
+    /**
+     * Update an existing character
+     */
+    public function updateCharacter(array $data): bool {
+        $sql = "UPDATE personnage 
+                SET name = ?, element = ?, weapon = ?, origin = ?, rarity = ?, url_img = ?
+                WHERE id_personnage = ?";
+        $params = [
+            $data['name'],
+            $data['element'],
+            $data['weapon'],
+            $data['origin'],
+            $data['rarity'],
+            $data['url_img'],
+            $data['id']
+        ];
+        $request = $this->execRequest($sql, $params);
+        return $request->rowCount() > 0;
+    }
+
+    /**
+     * Delete a character by its ID
+     */
+    public function deleteCharacter(string $id): bool {
+        $sql = "DELETE FROM personnage WHERE id_personnage = ?";
+        $request = $this->execRequest($sql, [$id]);
+        return $request->rowCount() > 0;
+    }
 }
 
 ?>
