@@ -23,12 +23,11 @@ class MainController {
     /**
      * Show index content
      */
-    public function index($gameName) : void {
+    public function index() : void {
         $service = new PersonnageService();
         $listPersonnage = $service->getall();
 
         echo $this->engine->render('home', [
-            'gameName' => $gameName,
             'listPersonnage' => $listPersonnage
         ]);
     }

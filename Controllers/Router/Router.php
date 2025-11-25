@@ -52,7 +52,7 @@ class Router {
         $this->routeList["index"] = new RouteIndex("index", $this->ctrlList["main"]);
         $this->routeList["add-character"] = new RouteAddCharacter("add-character", $this->ctrlList["character"]);
         $this->routeList["edit-character"] = new RouteEditCharacter("edit-character", $this->ctrlList["character"]);
-        $this->routeList["delete-character"] = new RouteDeleteCharacter("delete-character", $this->ctrlList["character"]);
+        $this->routeList["delete-character"] = new RouteDeleteCharacter("delete-character", $this->ctrlList["character"], $this->ctrlList["main"]);
         $this->routeList["add-element"] = new RouteAddElement("add-element", $this->ctrlList["element"]);
         $this->routeList["logs"] = new RouteLogs("logs", $this->ctrlList["logs"]);
         $this->routeList["login"] = new RouteLogin("login", $this->ctrlList["login"]);

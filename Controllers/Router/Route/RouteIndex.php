@@ -20,10 +20,10 @@ class RouteIndex extends Route {
     }
 
     public function get($params = []) {
-        return $this->controller->index("Genshin Impact");
+        return $this->controller->index();
     }
     public function post($params = []) {
-        return $this->controller->index("Genshin Impact"); /* TODO */
+        return $this->controller->index(); /* TODO */
     }
 }
 

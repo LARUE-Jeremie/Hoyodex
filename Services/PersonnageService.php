@@ -59,6 +59,13 @@ class PersonnageService {
 
         return $personnage;
     }
+
+    /**
+     * Delete an actual character based on its id
+     */
+    public function deleteCharacter(string $id): bool {
+        return $this->dao->deleteCharacter($id);
+    }
 }
 
 ?>
