@@ -3,6 +3,7 @@
 namespace Controllers\Router\Route;
 
 use Controllers\LoginController;
+use Controllers\Router\Route;
 
 /**
  * RouteLogin's class

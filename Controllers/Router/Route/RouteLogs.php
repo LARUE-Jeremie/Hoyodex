@@ -2,6 +2,7 @@
 namespace Controllers\Router\Route;
 
 use Controllers\LogsController;
+use Controllers\Router\Route;
 
 /**
  * RouteLogs's class

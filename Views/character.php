@@ -1,60 +1,62 @@
 <?php $this->layout('template', ['menuTitle' => $menuTitle]); ?>
 
 <div class="character">
-    <form class="character-form" method="POST" action="index.php?action=add-perso">
-
+    <form class="character-form" method="POST" action="index.php?action=<?= $character ? 'edit-character&id='.$character->getId() : 'add-character' ?>">
         <div class="character-card-form">
 
             <!-- HEADER -->
             <div class="header-card">
                 <div class="header-card-top">
                     <label>
-                        <input type="radio" name="rarity" value="4" checked> 4★
-                        <input type="radio" name="rarity" value="5"> 5★
+                        <input type="radio" name="rarity" value="4" <?= ($character ? $character->getRarity() : 4) === 4 ? 'checked' : '' ?>> 4★
+                        <input type="radio" name="rarity" value="5" <?= ($character ? $character->getRarity() : 4) === 5 ? 'checked' : '' ?>> 5★
                     </label>
 
                     <div class="element-card">
                         <select name="element" class="card-form-input">
                             <option value="">Élément</option>
-                            <option value="Anemo">Anemo</option>
-                            <option value="Cryo">Cryo</option>
-                            <option value="Dendro">Dendro</option>
-                            <option value="Electro">Electro</option>
-                            <option value="Geo">Geo</option>
-                            <option value="Hydro">Hydro</option>
-                            <option value="Pyro">Pyro</option>
+                            <?php
+                            $elements = ["Anemo","Cryo","Dendro","Electro","Geo","Hydro","Pyro"];
+                            foreach($elements as $el): ?>
+                                <option value="<?= $el ?>" <?= ($character ? $character->getElement() : '') === $el ? 'selected' : '' ?>><?= $el ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
 
                 <div class="origin-card">
-                    <input type="text" name="origin" placeholder="Origine" class="card-form-input">
+                    <input type="text" name="origin" placeholder="Origine" class="card-form-input" value="<?= $character ? $character->getOrigin() : '' ?>">
                 </div>
             </div>
 
             <!-- BODY -->
             <div class="body-card">
                 <div class="image-card">
-                    <input type="text" name="urlImg" placeholder="URL de l'image" class="card-form-input">
+                    <input type="text" name="urlImg" placeholder="URL de l'image" class="card-form-input" value="<?= $character ? $character->getUrlImg() : '' ?>">
+                    <?php if ($character && $character->getUrlImg()): ?>
+                        <div class="image-preview">
+                            <img src="<?= $character->getUrlImg() ?>" alt="<?= htmlspecialchars($character->getName()) ?>">
+                        </div>
+                    <?php endif; ?>
                 </div>
 
                 <div class="name-card">
-                    <input type="text" name="name" placeholder="Nom du personnage" class="card-form-input">
+                    <input type="text" name="name" placeholder="Nom du personnage" class="card-form-input" value="<?= $character ? $character->getName() : '' ?>">
                 </div>
 
                 <div class="weapon-card">
                     <select name="weapon" class="card-form-input">
                         <option value="">Type d'arme</option>
-                        <option value="Bow">Bow</option>
-                        <option value="Catalyst">Catalyst</option>
-                        <option value="Claymore">Claymore</option>
-                        <option value="Polearm">Polearm</option>
-                        <option value="Sword">Sword</option>
+                        <?php
+                        $weapons = ["Bow","Catalyst","Claymore","Polearm","Sword"];
+                        foreach($weapons as $w): ?>
+                            <option value="<?= $w ?>" <?= ($character ? $character->getWeapon() : '') === $w ? 'selected' : '' ?>><?= $w ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>
         </div>
 
-        <button type="submit" class="menu-button">Ajouter</button>
+        <button type="submit" class="menu-button"><?= $character ? 'Modifier' : 'Ajouter' ?></button>
     </form>
 </div>

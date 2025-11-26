@@ -61,7 +61,21 @@ class PersonnageService {
     }
 
     /**
-     * Delete an actual character based on its id
+     * Add a new character based on its id
+     */
+    public function addCharacter(array $data): bool {
+        return $this->dao->addCharacter($data);
+    }
+
+    /**
+     * Edit an existing character based on its id
+     */
+    public function editCharacter(array $data): bool {
+        return $this->dao->editCharacter($data);
+    }
+
+    /**
+     * Delete an existing character based on its id
      */
     public function deleteCharacter(string $id): bool {
         return $this->dao->deleteCharacter($id);

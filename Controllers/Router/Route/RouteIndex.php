@@ -3,6 +3,7 @@
 namespace Controllers\Router\Route;
 
 use Controllers\MainController;
+use Controllers\Router\Route;
 
 /**
  * RouteIndex's class

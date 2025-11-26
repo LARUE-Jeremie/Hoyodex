@@ -3,6 +3,7 @@
 namespace Controllers\Router\Route;
 
 use Controllers\ElementController;
+use Controllers\Router\Route;
 
 /**
  * RouteAddElement's class

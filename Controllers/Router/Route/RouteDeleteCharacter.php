@@ -4,6 +4,7 @@ namespace Controllers\Router\Route;
 
 use Controllers\CharacterController;
 use Controllers\MainController;
+use Controllers\Router\Route;
 
 class RouteDeleteCharacter extends Route {
 

@@ -32,7 +32,7 @@ class PersonnageDAO extends BasePDODAO {
     /**
      * Create a new character
      */
-    public function createCharacter(array $data): bool {
+    public function addCharacter(array $data): bool {
         $sql = "INSERT INTO personnage (id_personnage, name, element, weapon, origin, rarity, url_img) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)";
         $id = uniqid();
@@ -50,9 +50,9 @@ class PersonnageDAO extends BasePDODAO {
     }
 
     /**
-     * Update an existing character
+     * Edit an existing character
      */
-    public function updateCharacter(array $data): bool {
+    public function editCharacter(array $data): bool {
         $sql = "UPDATE personnage 
                 SET name = ?, element = ?, weapon = ?, origin = ?, rarity = ?, url_img = ?
                 WHERE id_personnage = ?";

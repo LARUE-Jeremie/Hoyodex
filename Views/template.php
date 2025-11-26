@@ -60,6 +60,7 @@
                     </div>
                 </div>
             </div>
+            <?=$this->insert('message', ['message' => $message ?? null])?>
         </div>
     </body>
 </html>

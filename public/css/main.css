@@ -472,6 +472,10 @@ h2 {
     text-align: center;
 }
 
+.image-preview img {
+    padding-top: 10px;
+    height: 100px;
+}
 
 
 

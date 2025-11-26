@@ -22,16 +22,16 @@ class CharacterController {
      */
     public function __construct(Engine $engine) {
         $this->engine = $engine;
-        $this->service = new PersonnageService();
+        $this->service = new PersonnageService;
+        $this->mainController = new MainController($engine);
     }
 
     /**
      * Display the form to create a new character
      */
-    public function displayAddCharacter(?Message $message = null) {
+    public function displayAddCharacter() {
         echo $this->engine->render("character", [
             "menuTitle" => "Ajouter un personnage",
-            "message"   => $message,
             "character" => null
         ]);
     }
@@ -39,22 +39,46 @@ class CharacterController {
     /**
      * Display the form to edit an existing character
      */
-    public function displayCharacter(string $id, ?Message $message = null) {
-        $character = $this->service->getByID($id);
+    public function displayCharacter(?Personnage $character = null) {
+        if (!$character) {
+            return $this->controller->displayAddCharacter(
+                new \Helpers\Message(
+                    "Personnage introuvable",
+                    \Helpers\Message::MESSAGE_COLOR_ERROR,
+                    "Erreur"
+                )
+            );
+        }
 
         echo $this->engine->render("character", [
             "menuTitle" => "Modifier un personnage",
-            "message"   => $message,
             "character" => $character
         ]);
     }
 
     /**
-     * Delete a character then redirect to list and/or show a message
+     * Add a character then redirect to list
+     */
+    public function addCharacter(array $data) {
+        $this->service->addCharacter($data);
+        $this->mainController->index();
+        var_dump($data);
+        die();
+    }
+
+    /**
+     * Edit a character then redirect to list
+     */
+    public function editCharacter(array $data) {
+        $this->service->editCharacter($data);
+        $this->mainController->index();
+    }
+
+    /**
+     * Delete a character then redirect to list
      */
     public function deleteCharacter(string $id) {
         $success = $this->service->deleteCharacter($id);
-
         $message = $success
             ? new Message("Personnage supprimé avec succès", Message::MESSAGE_COLOR_SUCCESS, "Succès")
             : new Message("Erreur lors de la suppression du personnage", Message::MESSAGE_COLOR_ERROR, "Erreur");
