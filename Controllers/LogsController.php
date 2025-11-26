@@ -18,7 +18,7 @@ class LogsController {
     }
 
     /* Show logs content */
-    public function displayLogs() {
+    public function displayLogs(): void {
         echo $this->engine->render('logs', [
             'menuTitle' => 'Logs'
         ]);

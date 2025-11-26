@@ -21,7 +21,7 @@ class ElementController {
     /**
      * Show element content
      */
-    public function displayElement() {
+    public function displayElement(): void {
         echo $this->engine->render('element', [
             'menuTitle' => 'Ajouter un élément'
         ]);

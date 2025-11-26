@@ -21,7 +21,7 @@ class LoginController {
     /**
      * Show element content
      */
-    public function displayLogin() {
+    public function displayLogin(): void {
         echo $this->engine->render('login', [
             'menuTitle' => 'Login'
         ]);

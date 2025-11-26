@@ -36,7 +36,7 @@ class Router {
     /**
      * Creates a Controller list
      */
-    private function createControllerList() {
+    private function createControllerList(): void {
         global $engine;
         $this->ctrlList["main"] = new MainController($engine);
         $this->ctrlList["character"] = new CharacterController($engine);
@@ -48,7 +48,7 @@ class Router {
     /**
      * Creates a Route list
      */
-    private function createRouteList() {
+    private function createRouteList(): void {
         $this->routeList["index"] = new RouteIndex("index", $this->ctrlList["main"]);
         $this->routeList["add-character"] = new RouteAddCharacter("add-character", $this->ctrlList["character"]);
         $this->routeList["edit-character"] = new RouteEditCharacter("edit-character", $this->ctrlList["character"]);
@@ -61,7 +61,7 @@ class Router {
     /**
      * Routing function
      */
-    public function routing($get, $post) {
+    public function routing($get, $post): void {
 
         $action = $get[$this->action_key] ?? "index";
         if (!isset($this->routeList[$action])) {

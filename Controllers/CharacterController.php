@@ -29,7 +29,7 @@ class CharacterController {
     /**
      * Display the form to create a new character
      */
-    public function displayAddCharacter() {
+    public function displayAddCharacter(): void {
         echo $this->engine->render("character", [
             "menuTitle" => "Ajouter un personnage",
             "character" => null
@@ -62,14 +62,12 @@ class CharacterController {
     public function addCharacter(array $data) {
         $this->service->addCharacter($data);
         $this->mainController->index();
-        var_dump($data);
-        die();
     }
 
     /**
      * Edit a character then redirect to list
      */
-    public function editCharacter(array $data) {
+    public function editCharacter(array $data): void {
         $this->service->editCharacter($data);
         $this->mainController->index();
     }
@@ -77,7 +75,7 @@ class CharacterController {
     /**
      * Delete a character then redirect to list
      */
-    public function deleteCharacter(string $id) {
+    public function deleteCharacter(string $id): Message {
         $success = $this->service->deleteCharacter($id);
         $message = $success
             ? new Message("Personnage supprimé avec succès", Message::MESSAGE_COLOR_SUCCESS, "Succès")
