@@ -27,7 +27,7 @@
                     </label>
 
                     <div class="element-card">
-                        <select name="element" class="card-form-input">
+                        <select name="element" class="card-form-input" required>
                             <option value="">Élément</option>
                             <?php foreach($elements_list as $el): ?>
                                 <option 
@@ -59,7 +59,7 @@
             <!-- BODY -->
             <div class="body-card">
                 <div class="image-card">
-                    <input type="text" name="urlImg" placeholder="URL de l'image" class="card-form-input" value="<?= $image ?>">
+                    <input type="text" name="urlImg" placeholder="URL de l'image" class="card-form-input" value="<?= $image ?>" required>
                     <?php if ($character && $image): ?>
                         <div class="image-preview">
                             <img src="<?= $image ?>" alt="<?= htmlspecialchars($name) ?>">
@@ -68,11 +68,11 @@
                 </div>
 
                 <div class="name-card">
-                    <input type="text" name="name" placeholder="Nom du personnage" class="card-form-input" value="<?= $name ?>">
+                    <input type="text" name="name" placeholder="Nom du personnage" class="card-form-input" value="<?= $name ?>" required>
                 </div>
 
                 <div class="weapon-card">
-                    <select name="weapon" class="card-form-input">
+                    <select name="weapon" class="card-form-input" required>
                         <option value="">Type d'arme</option>
                         <?php foreach($weapons_list as $w): ?>
                             <option 
