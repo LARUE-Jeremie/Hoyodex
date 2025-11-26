@@ -1,7 +1,7 @@
 <?php $this->layout('template', ['menuTitle' => $menuTitle]); ?>
 
 <div class="character">
-    <form class="character-form" method="POST" action="index.php?action=<?= $character ? 'edit-character&id='.$character->getId() : 'add-character' ?>">
+    <form class="character-form" method="POST" action="index.php?action=<?= $action ?>">
         <div class="character-card-form">
 
             <!-- HEADER -->

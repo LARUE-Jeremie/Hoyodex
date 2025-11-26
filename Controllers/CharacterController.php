@@ -32,7 +32,8 @@ class CharacterController {
     public function displayAddCharacter(): void {
         echo $this->engine->render("character", [
             "menuTitle" => "Ajouter un personnage",
-            "character" => null
+            "character" => null,
+            "action" => "add-character"
         ]);
     }
 
@@ -52,7 +53,8 @@ class CharacterController {
 
         echo $this->engine->render("character", [
             "menuTitle" => "Modifier un personnage",
-            "character" => $character
+            "character" => $character,
+            "action" => "edit-character&id=" . $character->getId()
         ]);
     }
 
@@ -61,7 +63,15 @@ class CharacterController {
      */
     public function addCharacter(array $data) {
         $this->service->addCharacter($data);
-        $this->mainController->index();
+        $message = $result
+            ? new Message("Personnage ajouté !", Message::MESSAGE_COLOR_SUCCESS)
+            : new Message("Erreur lors de l'ajout", Message::MESSAGE_COLOR_ERROR);
+
+        echo $this->engine->render("index", [
+            "menuTitle" => "Accueil",
+            "message" => $message,
+            "characters" => $this->service->getAll()
+        ]);
     }
 
     /**

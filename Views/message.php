@@ -1,6 +1,6 @@
-<?php if(isset($message) && $message instanceof \Helpers\Message): ?>
-    <div class="alert <?= $message->getColor() ?>">
-        <strong><?= htmlspecialchars($message->getTitle()) ?></strong>:
-        <?= htmlspecialchars($message->getMessage()) ?>
-    </div>
+<?php if ($message): ?>
+<div class="message <?= $message->getColor() ?>">
+    <h3><?= $message->getTitle() ?></h3>
+    <p><?= $message->getText() ?></p>
+</div>
 <?php endif; ?>
