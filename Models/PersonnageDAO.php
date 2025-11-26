@@ -11,7 +11,20 @@ class PersonnageDAO extends BasePDODAO {
      * Get all the characters
      */
     public function getAll(): array {
-        $sql = "SELECT * FROM personnage";
+        $sql = "SELECT
+                    P.id_personnage, P.name, P.rarity, P.url_img,
+                    P.element, P.weapon, P.origin,
+                    E.name AS element_name,
+                    W.name AS weapon_name,
+                    O.name AS origin_name
+                FROM
+                    personnage P
+                JOIN
+                    element E ON P.element = E.id
+                JOIN
+                    weapon W ON P.weapon = W.id
+                LEFT JOIN
+                    origin O ON P.origin = O.id";
         $request = $this->execRequest($sql);
         $data = $request->fetchAll();
 
@@ -22,7 +35,21 @@ class PersonnageDAO extends BasePDODAO {
      * Get a character by its ID
      */
     public function getByID(string $idPersonnage): array {
-        $sql = "SELECT * FROM personnage WHERE id_personnage = ?";
+        $sql = "SELECT
+                    P.id_personnage, P.name, P.rarity, P.url_img,
+                    P.element, P.weapon, P.origin,
+                    E.name AS element_name,
+                    W.name AS weapon_name,
+                    O.name AS origin_name
+                FROM
+                    personnage P
+                JOIN
+                    element E ON P.element = E.id
+                JOIN
+                    weapon W ON P.weapon = W.id
+                LEFT JOIN
+                    origin O ON P.origin = O.id
+                WHERE P.id_personnage = ?";
         $request = $this->execRequest($sql, [$idPersonnage]);
         $data = $request->fetch();
 
@@ -76,6 +103,15 @@ class PersonnageDAO extends BasePDODAO {
         $sql = "DELETE FROM personnage WHERE id_personnage = ?";
         $request = $this->execRequest($sql, [$id]);
         return $request->rowCount() > 0;
+    }
+
+    /**
+     * Get all ID and Name pairs for a given FK table
+     */
+    public function getAllFkData(string $tableName): array {
+        $sql = "SELECT id, name FROM {$tableName}"; 
+        $request = $this->execRequest($sql);
+        return $request->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
 

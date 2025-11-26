@@ -8,10 +8,10 @@
                     <?php
                         $id = $personnage->getId();
                         $name = $personnage->getName();
-                        $element = $personnage->getElement();
-                        $weapon = $personnage->getWeapon();
+                        $element = $personnage->getElementName();
+                        $weapon = $personnage->getWeaponName();
                         $rarity = $personnage->getRarity();
-                        $origin = $personnage->getOrigin();
+                        $origin = $personnage->getOriginName();
                         $image = $personnage->getUrlImg();
                     ?>
                     <?php

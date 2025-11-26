@@ -27,13 +27,26 @@ class CharacterController {
     }
 
     /**
+     * Get FK data
+     */
+    private function getFkLists(): array {
+        return [
+            'elements_list' => $this->service->getAllElements(),
+            'weapons_list' => $this->service->getAllWeapons(),
+            'origins_list' => $this->service->getAllOrigins()
+        ];
+    }
+
+    /**
      * Display the form to create a new character
      */
     public function displayAddCharacter(): void {
+        $fk_data = $this->getFkLists();
         echo $this->engine->render("character", [
             "menuTitle" => "Ajouter un personnage",
             "character" => null,
-            "action" => "add-character"
+            "action" => "add-character",
+            ...$fk_data,
         ]);
     }
 
@@ -51,10 +64,12 @@ class CharacterController {
             );
         }
 
+        $fk_data = $this->getFkLists();
         echo $this->engine->render("character", [
             "menuTitle" => "Modifier un personnage",
             "character" => $character,
-            "action" => "edit-character&id=" . $character->getId()
+            "action" => "edit-character&id=" . $character->getId(),
+            ...$fk_data,
         ]);
     }
 
@@ -62,16 +77,8 @@ class CharacterController {
      * Add a character then redirect to list
      */
     public function addCharacter(array $data) {
-        $this->service->addCharacter($data);
-        $message = $result
-            ? new Message("Personnage ajouté !", Message::MESSAGE_COLOR_SUCCESS)
-            : new Message("Erreur lors de l'ajout", Message::MESSAGE_COLOR_ERROR);
-
-        echo $this->engine->render("index", [
-            "menuTitle" => "Accueil",
-            "message" => $message,
-            "characters" => $this->service->getAll()
-        ]);
+        $result = $this->service->addCharacter($data); 
+        $this->mainController->index();
     }
 
     /**

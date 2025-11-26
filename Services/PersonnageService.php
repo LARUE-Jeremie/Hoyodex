@@ -33,6 +33,28 @@ class PersonnageService {
     }
 
     /**
+     * Get all the elements
+     */
+    public function getAllElements(): array {
+        return $this->dao->getAllFkData('element');
+    }
+
+    /**
+     * Get all the origins
+     */
+    public function getAllOrigins(): array {
+        return $this->dao->getAllFkData('origin');
+    }
+
+    /**
+     * Get all the weapons
+     */
+    public function getAllWeapons(): array {
+        return $this->dao->getAllFkData('weapon');
+    }
+
+
+    /**
      * Get a character by its ID
      */
     public function getByID(string $id): ?Personnage {
@@ -51,9 +73,12 @@ class PersonnageService {
         $personnage = new Personnage();
         $personnage->setId($row['id_personnage']);
         $personnage->setName($row['name']);
+        $personnage->setElementName($row['element_name'] ?? '');
         $personnage->setElement($row['element']);
         $personnage->setWeapon($row['weapon']);
+        $personnage->setWeaponName($row['weapon_name'] ?? '');
         $personnage->setOrigin($row['origin'] ?? null);
+        $personnage->setOriginName($row['origin_name'] ?? null);
         $personnage->setRarity((int)$row['rarity']);
         $personnage->setUrlImg($row['url_img']);
 
